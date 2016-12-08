@@ -17,8 +17,7 @@ window.Board = React.createClass({
     renderQuestion: function () {
        return ( 
            <div className="question-box">
-                <textarea ref="question" id="question" rows="10" cols="80" defaultValue="Enter Question here.">
-                    
+                <textarea ref="question" id="question" rows="10" cols="80" defaultValue="Enter Question here.">                    
                 </textarea>   
             </div>
        );
