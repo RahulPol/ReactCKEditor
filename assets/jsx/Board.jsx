@@ -25,10 +25,14 @@ window.Board = React.createClass({
 
     save:function(e){
         e.preventDefault();
+        var questionEditorId = this.refs.question.id;
+        alert(CKEDITOR.instances.question.getData());
+        
+        //alert(CKEDITOR.instances.questionEditor.getData());
     },
 
     renderOptions: function () {
-        var options = this.state.options;
+        var options = this.state.options;                
     },//rednerOptions
 
 
