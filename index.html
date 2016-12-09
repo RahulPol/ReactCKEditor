@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>React Advance</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/component.css">
     <link rel="stylesheet" href="assets/css/site.css">
     <link rel="stylesheet" href="assets/js/ckeditor/contents.css">
@@ -68,8 +69,7 @@
             optionArray.map(function(option,i){
                 
                 if(i<=3){
-                    var id = "option-"+option;
-                    console.log('option.... ',option,i,$("#OptionBoard"));                                        
+                    var id = "option-"+option;                                                     
                     $("#OptionBoard").append('<div class="option" id="option-id-'+ option +'" />');
 
                     ReactDOM.render(
