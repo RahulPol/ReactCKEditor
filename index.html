@@ -5,14 +5,35 @@
     <title>React Advance</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/component.css">
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/js/ckeditor/contents.css">
 </head>
 
 <body class="col-md-12">
 
     <h1>Integrate CK Editor in React</h1>
 
-    <div id="board"></div>
+    <div class="pageContainer">
+        <div class="questionWrapper">
+            <h2>Question: </h2>
+            <div class="container">
+                <div id="QeustionBoard"></div>
+            </div>
+        </div>
 
+        <div class="answersWrapper">
+            <h2>Answers: </h2>
+            <div class="container">
+                <div id="OptionBoard"></div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <button id="saveQuestion" type="submit" class="btn btn-primary btn-lg col-md-12">Save</button>
+        </div>
+
+    </div>
 
 
 
@@ -24,10 +45,48 @@
     <script src="assets/js/bootstrap.js"></script>
 
     <script src="assets/js/ckeditor/ckeditor.js"></script>
+    <script src="assets/js/ckeditor/config.js"></script>
+    <!--<script src="assets/js/ckeditor/styles.js"></script>-->
 
     <script type="text/babel" src="assets/jsx/Question.jsx"></script>
-    <script type="text/babel" src="assets/jsx/Board.jsx"></script>
+    <script type="text/babel" src="assets/jsx/QuestionBoard.jsx"></script>
+    <script type="text/babel" src="assets/jsx/Option.jsx"></script>
 
+    <script type="text/babel">
+
+        var optionArray = ['A','B','C','D','E','F','G','H'];
+        var optionCount = 0;
+
+        var initializeQuestionBoard = function () {            
+            ReactDOM.render(
+                <QeustionBoard id="question"></QeustionBoard>,
+                document.getElementById('QeustionBoard')
+            );    
+        }
+
+        var initializeOptions = function(){            
+            optionArray.map(function(option,i){
+                
+                if(i<=3){
+                    var id = "option-"+option;
+                    console.log('option.... ',option,i,$("#OptionBoard"));                                        
+                    $("#OptionBoard").append('<div class="option" id="option-id-'+ option +'" />');
+
+                    ReactDOM.render(
+                        <Option uniqueId={id} key={i} optionText={option} questionType='MCQ'></Option>,
+                        document.getElementById('option-id-'+ option +'')
+                    );
+                }   
+            })
+            
+        }
+
+        initializeQuestionBoard();
+        initializeOptions();
+        
+    </script>
+
+    <script src="assets/js/site.js"></script>
 </body>
 
 </html>
