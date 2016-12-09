@@ -10,25 +10,17 @@ window.Board = React.createClass({
         return false;
     },//shouldComponentUpdate
 
-    componentDidMount:function(){
-        CKEDITOR.replace( this.refs.question );
-    },//componentDidMount
-
+    
     renderQuestion: function () {
        return ( 
-           <div className="question-box">
-                <textarea ref="question" id="question" rows="10" cols="80" defaultValue="Enter Question here.">                    
-                </textarea>   
-            </div>
+          <Question></Question>
        );
     },//renderQuestion
 
     save:function(e){
         e.preventDefault();
         var questionEditorId = this.refs.question.id;
-        alert(CKEDITOR.instances.question.getData());
-        
-        //alert(CKEDITOR.instances.questionEditor.getData());
+        alert(CKEDITOR.instances.question.getData());    
     },
 
     renderOptions: function () {
