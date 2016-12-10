@@ -17,7 +17,6 @@ window.QeustionBoard = React.createClass({
         var options = this.state.options;
     },//rednerOptions
 
-
     render: function () {
         return (
             <div className="col-md-12">
